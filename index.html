@@ -12,6 +12,85 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+  <style>
+  /* --- Client Logo Slider Styles --- */
+  .clients-section {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .clients-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /* Slider Container */
+  .logo-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: #ffffff;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  /* Optional: Fade edges for smooth transition */
+  .logo-slider::before,
+  .logo-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .logo-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+  }
+  .logo-slider::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+  }
+
+  /* Inner Track containing logos */
+  .logo-track {
+    display: inline-block;
+    animation: 25s slide infinite linear;
+  }
+
+  /* Pause animation on hover */
+  .logo-slider:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  .logo-track img {
+    height: 45px;
+    margin: 0 40px;
+    vertical-align: middle;
+    filter: grayscale(100%); /* Uniform grayscale look */
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .logo-track img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  /* Infinite Keyframe Animation */
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
 </head>
 <body>
 <a href="#main" class="sr-only">Skip to content</a>
@@ -188,7 +267,31 @@
 
 </main>
 
+  
+
 <footer>
+  <section class="clients-section">
+  <h2>Trusted by Leading Companies</h2>
+  
+  <div class="logo-slider">
+    <div class="logo-track">
+      <!-- Original Set of Logos -->
+      <img src="path-to-your-logo-1.png" alt="Client 1">
+      <img src="path-to-your-logo-2.png" alt="Client 2">
+      <img src="path-to-your-logo-3.png" alt="Client 3">
+      <img src="path-to-your-logo-4.png" alt="Client 4">
+      <img src="path-to-your-logo-5.png" alt="Client 5">
+      
+      <!-- Duplicate Set (Required for seamless infinite looping) -->
+      <img src="path-to-your-logo-1.png" alt="Client 1">
+      <img src="path-to-your-logo-2.png" alt="Client 2">
+      <img src="path-to-your-logo-3.png" alt="Client 3">
+      <img src="path-to-your-logo-4.png" alt="Client 4">
+      <img src="path-to-your-logo-5.png" alt="Client 5">
+    </div>
+  </div>
+</section>
+  
   <div class="shell footer-inner">
     <div class="footer-top">
       <div class="footer-brand-col">
