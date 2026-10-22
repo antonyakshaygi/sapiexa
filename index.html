@@ -13,11 +13,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
-  <style>
-  /* --- Client Logo Slider Styles --- */
+<style>
   .clients-section {
     text-align: center;
     padding: 40px 0;
+    background: #f8f9fa;
   }
 
   .clients-section h2 {
@@ -26,67 +26,78 @@
     margin-bottom: 20px;
   }
 
-  /* Slider Container */
-  .logo-slider {
+  /* Slider container wrapping the ticker */
+  .logo-ticker {
     overflow: hidden;
-    white-space: nowrap;
     position: relative;
     background: #ffffff;
     padding: 20px 0;
     width: 100%;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
 
-  /* Optional: Fade edges for smooth transition */
-  .logo-slider::before,
-  .logo-slider::after {
+  /* Fade edges for smooth appearance */
+  .logo-ticker::before,
+  .logo-ticker::after {
     content: "";
     position: absolute;
     top: 0;
-    width: 100px;
+    width: 80px;
     height: 100%;
     z-index: 2;
     pointer-events: none;
   }
-  .logo-slider::before {
+  .logo-ticker::before {
     left: 0;
     background: linear-gradient(to right, #ffffff, transparent);
   }
-  .logo-slider::after {
+  .logo-ticker::after {
     right: 0;
     background: linear-gradient(to left, #ffffff, transparent);
   }
 
-  /* Inner Track containing logos */
-  .logo-track {
-    display: inline-block;
-    animation: 25s slide infinite linear;
+  /* The moving track */
+  .ticker-track {
+    display: inline-flex;
+    align-items: center;
+    animation: scrollTicker 20s linear infinite;
   }
 
-  /* Pause animation on hover */
-  .logo-slider:hover .logo-track {
+  /* Pause on hover */
+  .logo-ticker:hover .ticker-track {
     animation-play-state: paused;
   }
 
-  .logo-track img {
-    height: 45px;
-    margin: 0 40px;
-    vertical-align: middle;
-    filter: grayscale(100%); /* Uniform grayscale look */
+  /* Individual logo items aligned in a single line */
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px;
+    flex-shrink: 0;
+  }
+
+  .ticker-item img {
+    height: 40px; /* Adjust height to shrink/fit nicely */
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
     opacity: 0.7;
     transition: all 0.3s ease;
   }
 
-  .logo-track img:hover {
+  .ticker-item img:hover {
     filter: grayscale(0%);
     opacity: 1;
   }
 
-  /* Infinite Keyframe Animation */
-  @keyframes slide {
-    from {
+  /* Animation moving items from right to left */
+  @keyframes scrollTicker {
+    0% {
       transform: translateX(0);
     }
-    to {
+    100% {
       transform: translateX(-50%);
     }
   }
@@ -273,21 +284,21 @@
   <section class="clients-section">
   <h2 style="color: white;">Trusted by Leading Companies</h2>
   
-  <div class="logo-slider">
-    <div class="logo-track">
+ <div class="logo-ticker">
+    <div class="ticker-track">
       <!-- Original Set of Logos -->
-      <img src="AMALA ANNAI AUTOMOBILES.png" alt="Amala Annai Automobiles">
-      <img src="health-plus-logo.png" alt="Health Plus Medicals">
-      <img src="TNR SWARAJ.png" alt="TNR SWARAJ TRACTORS 4">
-      <img src="ALS LOGO.png" alt="ALS TECHNOLOGIES">
-      <img src="SAKTHI SUPERMART.png" alt="Sakthi Supermarket">
+     <div class="ticker-item"> <img src="AMALA ANNAI AUTOMOBILES.png" alt="Amala Annai Automobiles"></div>
+     <div class="ticker-item"> <img src="health-plus-logo.png" alt="Health Plus Medicals"></div>
+     <div class="ticker-item"> <img src="TNR SWARAJ.png" alt="TNR SWARAJ TRACTORS 4"></div>
+      <div class="ticker-item"> <img src="ALS LOGO.png" alt="ALS TECHNOLOGIES"></div>
+     <div class="ticker-item"> <img src="SAKTHI SUPERMART.png" alt="Sakthi Supermarket"></div>
       
       <!-- Duplicate Set (Required for seamless infinite looping) -->
-      <img src="AMALA ANNAI AUTOMOBILES.png" alt="Amala Annai Automobiles">
-      <img src="health-plus-logo.png" alt="Health Plus Medicals">
-      <img src="TNR SWARAJ.png" alt="TNR SWARAJ TRACTORS 4">
-      <img src="ALS LOGO.png" alt="ALS TECHNOLOGIES">
-      <img src="SAKTHI SUPERMART.png" alt="Sakthi Supermarket
+       <div class="ticker-item"> <img src="AMALA ANNAI AUTOMOBILES.png" alt="Amala Annai Automobiles"></div>
+     <div class="ticker-item"> <img src="health-plus-logo.png" alt="Health Plus Medicals"></div>
+     <div class="ticker-item"> <img src="TNR SWARAJ.png" alt="TNR SWARAJ TRACTORS 4"></div>
+      <div class="ticker-item"> <img src="ALS LOGO.png" alt="ALS TECHNOLOGIES"></div>
+     <div class="ticker-item"> <img src="SAKTHI SUPERMART.png" alt="Sakthi Supermarket"></div>
     </div>
   </div>
 </section>
